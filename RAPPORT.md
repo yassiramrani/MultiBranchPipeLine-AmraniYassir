@@ -12,4 +12,14 @@ Le TP automatise la compilation, les tests et le conditionnement d’un programm
 
 L’indexation doit découvrir les deux branches et le webhook doit relancer la branche modifiée lors d’un push. La branche de démonstration a sa propre sortie et ses propres attentes.
 
-La compilation, les trois vérifications et le lancement du JAR ont été exécutés localement avec les outils Java. Les journaux correspondants sont dans `verification/`. La validation du job Jenkins et ses captures restent à réaliser.
+## Exécution vérifiée
+
+Jenkins 2.528.2, Maven 3.9.11 et JDK 21, avec compilation ciblant Java 17. Les builds ont utilisé une copie locale des branches déjà publiées sur GitHub. Jenkins a archivé le JAR après les trois vérifications.
+
+| Branche | Commit testé | Vérifications | Sortie du JAR | Jenkins |
+| --- | --- | --- | --- | --- |
+| `main` | `b1a431cb98ed` | 3/3 | `Bonjour, DevOps !` | SUCCESS |
+| `feature/welcome-message` | `955499ace35a` | 3/3 | `Bonjour, DevOps EMSI !` | SUCCESS |
+
+L’indexation a découvert les deux branches à partir de la source Git du laboratoire. La procédure GitHub/ngrok est dans [le guide webhook](webhook-ngrok.md). La livraison d’un événement webhook GitHub n’a pas été testée.
+

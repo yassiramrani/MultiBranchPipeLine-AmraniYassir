@@ -21,12 +21,18 @@ java -jar target/tp-multibranch.jar
 2. Dans Jenkins, créer un **Multibranch Pipeline**. Ajouter la source **GitHub**, sélectionner le dépôt, activer la découverte des branches et laisser `Jenkinsfile` comme chemin du script. Pour un dépôt privé, enregistrer les identifiants dans Jenkins.
 3. Lancer **Scan Multibranch Pipeline Now**. Vérifier que `main` et `feature/welcome-message` apparaissent avec leur exécution respective. Le checkout récupère la révision associée à chaque exécution.
 4. Suivre [la fiche webhook](webhook-ngrok.md) pour vérifier un déclenchement après push.
-5. Ajouter les captures de la page des branches et des exécutions réelles au présent README, puis remettre le lien GitHub dans Classroom.
 
 Le programme affiche `Bonjour, DevOps !` sur `main`. La branche de démonstration change le message par défaut et adapte son test à `Bonjour, DevOps EMSI !`.
 
 ## Résultats vérifiés
 
-Compilation avec le compilateur Java 21 ciblant Java 17, trois vérifications et exécution du JAR. Les journaux du dossier `verification/` proviennent des commandes Java lancées localement. L’exécution Maven et les captures d’une exécution Jenkins restent à valider.
+Jenkins 2.528.2, Maven 3.9.11 et JDK 21, avec compilation ciblant Java 17. Les builds ont utilisé une copie locale des branches déjà publiées sur GitHub. Jenkins a archivé le JAR après les trois vérifications.
+
+| Branche | Commit testé | Vérifications | Sortie du JAR | Jenkins |
+| --- | --- | --- | --- | --- |
+| `main` | `b1a431cb98ed` | 3/3 | `Bonjour, DevOps !` | SUCCESS |
+| `feature/welcome-message` | `955499ace35a` | 3/3 | `Bonjour, DevOps EMSI !` | SUCCESS |
+
+L’indexation a découvert les deux branches à partir de la source Git du laboratoire. La procédure GitHub/ngrok est dans [le guide webhook](webhook-ngrok.md). La livraison d’un événement webhook GitHub n’a pas été testée.
 
 Voir [le compte rendu](RAPPORT.md).
