@@ -23,3 +23,4 @@ Jenkins 2.528.2, Maven 3.9.11 et JDK 21, avec compilation ciblant Java 17. Les b
 
 L’indexation a découvert les deux branches à partir de la source Git du laboratoire. La procédure GitHub/ngrok est dans [le guide webhook](webhook-ngrok.md). La livraison d’un événement webhook GitHub n’a pas été testée.
 
+[Captures d’exécution](README.md#captures-jenkins)
