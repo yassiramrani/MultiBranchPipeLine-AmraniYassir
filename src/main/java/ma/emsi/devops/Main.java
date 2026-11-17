@@ -4,7 +4,7 @@ public final class Main {
     private Main() {}
 
     public static String greeting(String name) {
-        String recipient = name == null || name.isBlank() ? "DevOps" : name.strip();
+        String recipient = name == null || name.isBlank() ? "DevOps EMSI" : name.strip();
         return "Bonjour, " + recipient + " !";
     }
 

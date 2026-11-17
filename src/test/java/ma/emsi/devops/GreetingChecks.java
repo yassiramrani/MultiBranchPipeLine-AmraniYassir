@@ -4,8 +4,8 @@ public final class GreetingChecks {
     private GreetingChecks() {}
 
     public static void main(String[] args) {
-        check("sans argument", "Bonjour, DevOps !", Main.greeting(null));
-        check("argument vide", "Bonjour, DevOps !", Main.greeting("   "));
+        check("sans argument", "Bonjour, DevOps EMSI !", Main.greeting(null));
+        check("argument vide", "Bonjour, DevOps EMSI !", Main.greeting("   "));
         check("argument personnalisé", "Bonjour, EMSI !", Main.greeting(" EMSI "));
     }
 
